@@ -56,33 +56,26 @@ int main()
         int matrizGabarito[TAM][TAM];
         int matrizJogo[TAM][TAM];
 
-        for (int i = 0; i < TAM; i++)
-        {
-            for (int j = TAM - 1; j > -1; j--)
-            {
-                matrizGabarito[i][j] = matrizPrincipal[i][j];
-
-                cout << matrizGabarito[i][j];
-
-                if (j == 2 || j == 5 || j == 8)
-                {
-                    cout << " | ";
-                }
-            }
-            cout << endl;
-        }
-
         cin.get();
         while (game)
         {
+            system("cls");
             if (newGame)
             {
+                int preenchidas = 42;
                 srand(time(NULL));
+
+                for (int i = 0; i < TAM; i++)
+                {
+                    for (int j = 0; j < TAM; j++)
+                    {
+                        matrizJogo[i][j] = 0;
+                    }
+                }
+
                 do
                 {
                     type = rand() % 10;
-                    cout << type << endl;
-                    cin.get();
                 } while (type > 2);
 
                 switch (type)
@@ -117,7 +110,33 @@ int main()
                     break;
                 }
 
+                while (preenchidas)
+                {
+                    int i, j;
+                    i = rand() % 10;
+                    j = rand() % 10;
+                    if (matrizJogo[i][j] != matrizGabarito[i][j] && matrizJogo[i][j] == 0)
+                    {
+                        matrizJogo[i][j] = matrizGabarito[i][j];
+                        preenchidas--;
+                    }
+                }
+
                 newGame = false;
+            } else {
+                                for (int i = 0; i < TAM; i++)
+                {
+                    for (int j = 0; j < TAM; j++)
+                    {
+                        cout << matrizJogo[i][j];
+
+                        if (j == 2 || j == 5 || j == 8)
+                        {
+                            cout << " | ";
+                        }
+                    }
+                    cout << endl;
+                }
             }
         }
     }
