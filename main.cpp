@@ -15,13 +15,15 @@ int main()
         switch (menu)
         {
         case 0:
-            cout << "Jogo";
+            cout << "Jogo" << endl;
             break;
         case 1:
-            cout << "Sobre";
+            cout << "Daniel Uesler de Brito\tNovembro/2024\nProfessor:" << endl;
+            cin.get();
+            cin.get();
             break;
         case 2:
-            cout << "Sair";
+            cout << "Sair" << endl;
             end = true;
             break;
         }
