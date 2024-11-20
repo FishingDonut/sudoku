@@ -17,7 +17,7 @@ int main()
         {5, 4, 6, 7, 9, 8, 1, 3, 2},
         {8, 7, 9, 3, 2, 1, 5, 4, 6}};
 
-    int menu, times;
+    int menu, times, type;
     bool end = false;
     bool game = false;
     bool newGame = true;
@@ -58,11 +58,14 @@ int main()
 
         for (int i = 0; i < TAM; i++)
         {
-            for (int j = 0; j < TAM; j++)
+            for (int j = TAM - 1; j > -1; j--)
             {
-                matrizGabarito[i][j] = matrizPrincipal[j][i];
+                matrizGabarito[i][j] = matrizPrincipal[i][j];
+
                 cout << matrizGabarito[i][j];
-                if(j == 2 || j == 5 || j == 8){
+
+                if (j == 2 || j == 5 || j == 8)
+                {
                     cout << " | ";
                 }
             }
@@ -70,31 +73,53 @@ int main()
         }
 
         cin.get();
-        // while (game)
-        // {
-        //     if (newGame)
-        //     {
-        //         srand(time(NULL));
-        //         do
-        //         {
-        //             type = rand() % 10;
-        //             cout << type << endl;
-        //             cin.get();
-        //         } while (type > 2);
+        while (game)
+        {
+            if (newGame)
+            {
+                srand(time(NULL));
+                do
+                {
+                    type = rand() % 10;
+                    cout << type << endl;
+                    cin.get();
+                } while (type > 2);
 
-        //         switch(type){
-        //             case 0:
-        //                 break;
-        //             case 1:
-        //                 break;
-        //             case 2:
-        //                 break;
-        //         }
+                switch (type)
+                {
+                case 0: // transposta
+                    for (int i = 0; i < TAM; i++)
+                    {
+                        for (int j = 0; j < TAM; j++)
+                        {
+                            matrizGabarito[i][j] = matrizPrincipal[j][i];
+                        }
+                    }
+                    break;
+                case 1: // inverte linha
+                    for (int i = TAM - 1; i > -1; i--)
+                    {
+                        for (int j = 0; j < TAM; j++)
+                        {
+                            matrizGabarito[i][j] = matrizPrincipal[i][j];
+                        }
+                        cout << endl;
+                    }
+                    break;
+                case 2: // inverte colunas
+                    for (int i = 0; i < TAM; i++)
+                    {
+                        for (int j = TAM - 1; j > -1; j--)
+                        {
+                            matrizGabarito[i][j] = matrizPrincipal[i][j];
+                        }
+                    }
+                    break;
+                }
 
-        //         newGame = false;
-        //     }
-
-        // }
+                newGame = false;
+            }
+        }
     }
     // preencher
     // deletar
