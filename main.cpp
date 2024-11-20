@@ -1,10 +1,13 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int main()
 {
-    int menu;
+    int menu, times;
     bool end = false;
+
+    times = time(nullptr);
 
     while (!end)
     {
@@ -19,6 +22,7 @@ int main()
             break;
         case 1:
             cout << "Daniel Uesler de Brito\tNovembro/2024\nProfessor:" << endl;
+            cout << difftime(times, time(nullptr));
             cin.get();
             cin.get();
             break;
@@ -29,5 +33,9 @@ int main()
         }
     }
 
+    //preencher
+    //deletar
+    //editar
+    //sair
     return 0;
 }
