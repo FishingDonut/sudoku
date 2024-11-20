@@ -90,14 +90,14 @@ int main()
                 {
                     for (int l = 0; l < 3; l++)
                     {
-                        matrizGabarito[i][j][k][l] = matrizPrincipal[i][j][k][l];
-                        cout << matrizGabarito[i][j][k][l];
+                        matrizGabarito[i][j][k][l] = matrizPrincipal[j][i][l][k];
+                        cout << matrizPrincipal[i][j][k][l];
                     }
                     cout << " | ";
                 }
-                    cout << endl;
+                cout << endl;
             }
-                    cout << endl;
+            cout << endl;
         }
 
         cin.get();
