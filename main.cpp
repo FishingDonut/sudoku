@@ -4,6 +4,15 @@ using namespace std;
 
 #define TAM 9
 
+// Ciência da Computação | UNIVALI - Itajaí
+// Trabalho M3 da matéria de Algoritmos e Programação(22760), ministrada pelo professor Rafael Ballottin Martins
+// Integrantes da equipe:
+// Daniel Uesler de Brito
+// Gabriel Rodrigues Leite
+// Ismael Antonio da Silva Junior
+// João Vitor Silveira Freitas
+// Novembro/2024
+
 int main()
 {
     int matrizPrincipal[TAM][TAM] = {
@@ -38,13 +47,23 @@ int main()
             newGame = true;
             break;
         case 1:
-            cout << "Daniel Uesler de Brito\tNovembro/2024\nProfessor:" << endl;
-            cout << difftime(times, time(NULL)) << endl;
+            system("cls");
+            cout << "Equipe de desenvolvimento:" << endl;
+            cout << "- Daniel Uesler de Brito" << endl;
+            cout << "- Gabriel Rodrigues Leite" << endl;
+            cout << "- Ismael Antonio da Silva Junior" << endl;
+            cout << "- João Vitor Silveira Freitas" << endl
+                 << endl;
+            cout << "Professor/Disciplina:" << endl;
+            cout << "- Rafael Ballottin Martins/Algoritmos e Programação" << endl;
+            cout << "Novembro/2024" << endl
+                 << endl;
             cin.get();
             cin.get();
             break;
         case 2:
-            cout << "Sair" << endl;
+            system("cls");
+            cout << "Obrigado por jogar." << endl;
             end = true;
             game = false;
             break;
@@ -60,7 +79,7 @@ int main()
             int linha, coluna, valor;
 
             system("cls");
-            
+
             if (newGame)
             {
                 int preenchidas = 42;
