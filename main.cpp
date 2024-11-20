@@ -59,6 +59,7 @@ int main()
         cin.get();
         while (game)
         {
+            int linha, coluna, valor;
             system("cls");
             if (newGame)
             {
@@ -123,8 +124,11 @@ int main()
                 }
 
                 newGame = false;
-            } else {
-                                for (int i = 0; i < TAM; i++)
+            }
+            else
+            {
+                do{
+                for (int i = 0; i < TAM; i++) //mostrar para o jogador
                 {
                     for (int j = 0; j < TAM; j++)
                     {
@@ -137,6 +141,16 @@ int main()
                     }
                     cout << endl;
                 }
+
+                cout << endl << endl << endl << "Linha: ";
+                cin >> linha;
+                cout << endl << "coluna: ";
+                cin >> coluna;
+                } while(matrizJogo[linha][coluna] != 0);
+
+                cout << endl << "Digite o valor: ";
+                cin >> valor;
+                matrizJogo[linha][coluna] = valor%10;
             }
         }
     }
