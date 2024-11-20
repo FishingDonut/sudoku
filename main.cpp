@@ -34,7 +34,6 @@ int main()
         switch (menu)
         {
         case 0:
-            cout << "Jogo" << endl;
             game = true;
             newGame = true;
             break;
@@ -51,16 +50,17 @@ int main()
             break;
         }
 
-        cin.get();
-
         int matrizGabarito[TAM][TAM];
         int matrizJogo[TAM][TAM];
+        int matrizBackup[TAM][TAM];
 
-        cin.get();
         while (game)
         {
+            string menssagem = "";
             int linha, coluna, valor;
+
             system("cls");
+            
             if (newGame)
             {
                 int preenchidas = 42;
@@ -71,6 +71,7 @@ int main()
                     for (int j = 0; j < TAM; j++)
                     {
                         matrizJogo[i][j] = 0;
+                        matrizBackup[i][j] = 0;
                     }
                 }
 
@@ -119,6 +120,7 @@ int main()
                     if (matrizJogo[i][j] != matrizGabarito[i][j] && matrizJogo[i][j] == 0)
                     {
                         matrizJogo[i][j] = matrizGabarito[i][j];
+                        matrizBackup[i][j] = matrizJogo[i][j];
                         preenchidas--;
                     }
                 }
@@ -127,30 +129,39 @@ int main()
             }
             else
             {
-                do{
-                for (int i = 0; i < TAM; i++) //mostrar para o jogador
+                do
                 {
-                    for (int j = 0; j < TAM; j++)
+                    system("cls");
+                    for (int i = 0; i < TAM; i++) // mostrar para o jogador
                     {
-                        cout << matrizJogo[i][j];
-
-                        if (j == 2 || j == 5 || j == 8)
+                        for (int j = 0; j < TAM; j++)
                         {
-                            cout << " | ";
+                            cout << matrizJogo[i][j];
+
+                            if (j == 2 || j == 5 || j == 8)
+                            {
+                                cout << " | ";
+                            }
                         }
+                        cout << endl;
                     }
-                    cout << endl;
-                }
 
-                cout << endl << endl << endl << "Linha: ";
-                cin >> linha;
-                cout << endl << "coluna: ";
-                cin >> coluna;
-                } while(matrizJogo[linha][coluna] != 0);
+                    cout << endl
+                         << menssagem
+                         << endl
+                         << endl
+                         << "Linha: ";
+                    cin >> linha;
+                    cout << endl
+                         << "coluna: ";
+                    cin >> coluna;
+                    menssagem = "Cordenadas invalidas! ";
+                } while (matrizBackup[linha][coluna] != 0);
 
-                cout << endl << "Digite o valor: ";
+                cout << endl
+                     << "Digite o valor: ";
                 cin >> valor;
-                matrizJogo[linha][coluna] = valor%10;
+                matrizJogo[linha][coluna] = valor % 10;
             }
         }
     }
