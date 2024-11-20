@@ -2,46 +2,20 @@
 #include <time.h>
 using namespace std;
 
+#define TAM 9
+
 int main()
 {
-    int matrizPrincipal[3][3][3][3] = {
-        {{{4, 9, 5},
-          {2, 8, 7},
-          {3, 6, 1}},
-
-         {{7, 2, 8},
-          {6, 1, 3},
-          {4, 9, 5}},
-
-         {{3, 6, 1},
-          {9, 5, 4},
-          {7, 2, 8}}},
-
-        {{{6, 5, 3},
-          {8, 4, 9},
-          {2, 1, 7}},
-
-         {{9, 8, 4},
-          {1, 7, 2},
-          {6, 5, 3}},
-
-         {{2, 1, 7},
-          {5, 3, 6},
-          {9, 8, 4}}},
-
-        {{{1, 3, 2},
-          {4, 6, 5},
-          {8, 7, 9}},
-
-         {{5, 4, 6},
-          {7, 9, 8},
-          {1, 3, 2}},
-
-         {{8, 7, 9},
-          {3, 2, 1},
-          {5, 4, 6}}
-
-        }};
+    int matrizPrincipal[TAM][TAM] = {
+        {4, 9, 5, 2, 8, 7, 3, 6, 1},
+        {7, 2, 8, 6, 1, 3, 4, 9, 5},
+        {3, 6, 1, 9, 5, 4, 7, 2, 8},
+        {6, 5, 3, 8, 4, 9, 2, 1, 7},
+        {9, 8, 4, 1, 7, 2, 6, 5, 3},
+        {2, 1, 7, 5, 3, 6, 9, 8, 4},
+        {1, 3, 2, 4, 6, 5, 8, 7, 9},
+        {5, 4, 6, 7, 9, 8, 1, 3, 2},
+        {8, 7, 9, 3, 2, 1, 5, 4, 6}};
 
     int menu, times;
     bool end = false;
@@ -79,25 +53,20 @@ int main()
 
         cin.get();
 
-        int matrizGabarito[3][3][3][3];
-        int matrizJogo[3][3][3][3];
+        int matrizGabarito[TAM][TAM];
+        int matrizJogo[TAM][TAM];
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < TAM; i++)
         {
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < TAM; j++)
             {
-                for (int k = 0; k < 3; k++)
-                {
-                    for (int l = 0; l < 3; l++)
-                    {
-                        matrizGabarito[i][j][k][l] = matrizPrincipal[i][j][k][l];
-                        cout << matrizGabarito[i][j][k][l];
-                    }
+                matrizGabarito[i][j] = matrizPrincipal[j][i];
+                cout << matrizGabarito[i][j];
+                if(j == 2 || j == 5 || j == 8){
                     cout << " | ";
                 }
-                    cout << endl;
             }
-                    cout << endl;
+            cout << endl;
         }
 
         cin.get();
